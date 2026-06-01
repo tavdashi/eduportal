@@ -1,0 +1,19 @@
+{
+  "name": "eduportal",
+  "version": "1.0.0",
+  "description": "EduPortal - A full-featured student web portal built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "seed": "node database/seed.js"
+  },
+  "dependencies": {
+    "sql.js": "^1.11.0"
+  },
+  "devDependencies": {
+    "electron": "^29.1.0"
+  },
+  "keywords": ["electron", "student", "portal", "education"],
+  "author": "EduPortal Team",
+  "license": "MIT"
+}

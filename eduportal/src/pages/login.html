@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduPortal — Student Login</title>
+  <meta name="description" content="Log in to EduPortal to access your courses, grades, assignments and more." />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+
+<!-- Floating theme switcher -->
+<div class="auth-theme-toggle titlebar-nodrag">
+  <span style="font-size:0.75rem;color:var(--text-muted);margin-right:4px;">Theme:</span>
+  <button class="theme-dot" data-theme="pastel" title="Spring Pastel"></button>
+  <button class="theme-dot" data-theme="dark"   title="Dark Mode"></button>
+  <button class="theme-dot" data-theme="mint"    title="Mint"></button>
+  <button class="theme-dot" data-theme="peach"   title="Peach"></button>
+</div>
+
+<!-- Background animated dots -->
+<div class="auth-dots" id="auth-dots"></div>
+
+<div class="auth-page">
+  <div class="auth-card" role="main">
+
+    <!-- Header -->
+    <div class="auth-header">
+      <div class="auth-logo" aria-hidden="true">🎓</div>
+      <h1>EduPortal</h1>
+      <p class="subtitle">Your complete student management system</p>
+    </div>
+
+    <!-- Tab Switcher -->
+    <div class="auth-tabs" role="tablist" aria-label="Login or Register">
+      <button class="auth-tab active" id="tab-login"    role="tab" aria-selected="true"  aria-controls="panel-login">Sign In</button>
+      <button class="auth-tab"        id="tab-register" role="tab" aria-selected="false" aria-controls="panel-register">Register</button>
+    </div>
+
+    <!-- Message display -->
+    <div class="auth-message" id="auth-msg" role="alert" aria-live="polite"></div>
+
+    <!-- ── LOGIN PANEL ── -->
+    <div id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="login-username">Username</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">👤</span>
+            <input
+              class="form-input"
+              type="text"
+              id="login-username"
+              name="username"
+              placeholder="Enter your username"
+              autocomplete="username"
+              required
+              aria-required="true"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input
+              class="form-input"
+              type="password"
+              id="login-password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+              aria-required="true"
+            />
+            <button type="button" class="pass-toggle" id="toggle-login-pass" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <div class="auth-row">
+          <label class="checkbox-wrap">
+            <input type="checkbox" id="remember-me" />
+            Remember me
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit" id="login-btn">
+          <span id="login-btn-text">Sign In</span>
+        </button>
+      </form>
+
+      <!-- Demo accounts -->
+      <div class="demo-hint">
+        <strong>Demo Accounts:</strong><br />
+        aisha / aisha123 &nbsp;·&nbsp; bilal / bilal123<br />
+        sara / sara123 &nbsp;·&nbsp; zain / zain123
+      </div>
+    </div>
+
+    <!-- ── REGISTER PANEL ── -->
+    <div id="panel-register" role="tabpanel" aria-labelledby="tab-register" style="display:none;">
+      <form id="register-form" novalidate>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name</label>
+            <input class="form-input" type="text" id="reg-name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-sid">Student ID</label>
+            <input class="form-input" type="text" id="reg-sid" placeholder="e.g. STU005" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-username">Username</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">👤</span>
+            <input class="form-input" type="text" id="reg-username" placeholder="Choose a username" required autocomplete="username" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email Address</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">✉️</span>
+            <input class="form-input" type="email" id="reg-email" placeholder="student@edu.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="reg-dept">Department</label>
+            <select class="form-input" id="reg-dept">
+              <option value="Computer Science">Computer Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Biology">Biology</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Business">Business</option>
+              <option value="Arts">Arts</option>
+              <option value="General">General</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-year">Year</label>
+            <select class="form-input" id="reg-year">
+              <option value="1">Year 1</option>
+              <option value="2">Year 2</option>
+              <option value="3">Year 3</option>
+              <option value="4">Year 4</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Password</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">🔒</span>
+            <input class="form-input" type="password" id="reg-password" placeholder="At least 6 characters" required autocomplete="new-password" />
+            <button type="button" class="pass-toggle" id="toggle-reg-pass" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit" id="register-btn">
+          Create Account
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast-container" aria-live="polite"></div>
+
+<script src="../js/theme.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/auth.js"></script>
+</body>
+</html>

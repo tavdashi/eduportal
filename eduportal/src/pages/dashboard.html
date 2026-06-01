@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — EduPortal</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/sidebar.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+<!-- Custom Titlebar -->
+<div class="titlebar">
+  <div class="titlebar-left titlebar-nodrag">
+    <span class="window-controls">
+      <button class="wc-btn wc-close"    id="wc-close"    aria-label="Close window"></button>
+      <button class="wc-btn wc-minimize" id="wc-minimize" aria-label="Minimize window"></button>
+      <button class="wc-btn wc-maximize" id="wc-maximize" aria-label="Maximize window"></button>
+    </span>
+  </div>
+  <span class="titlebar-logo titlebar-drag">🎓 EduPortal</span>
+  <div style="width:90px;"></div><!-- spacer -->
+</div>
+
+<!-- App Shell -->
+<div class="app-shell" style="padding-top:38px;">
+
+  <!-- ── SIDEBAR ── -->
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="sidebar-brand">
+      <div class="brand-icon" aria-hidden="true">🎓</div>
+      <div class="brand-text">
+        <h1>EduPortal</h1>
+        <p>Student Management</p>
+      </div>
+    </div>
+
+    <!-- Student Info — click avatar to go to profile -->
+    <div class="sidebar-user" id="sidebar-user" aria-label="Logged in student"
+         style="cursor:pointer;" title="Click to view profile" onclick="window.navigateTo('profile')">
+      <div class="avatar" id="sidebar-avatar" style="background:#c084fc;">A</div>
+      <div class="sidebar-user-info">
+        <div class="name" id="sidebar-name">Loading…</div>
+        <div class="id"   id="sidebar-sid">STU000</div>
+      </div>
+      <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">→</span>
+    </div>
+
+    <span class="nav-section-label">Main Menu</span>
+    <ul class="nav-list" role="list">
+      <li class="nav-item">
+        <button class="nav-link active" data-page="dashboard" aria-current="page">
+          <span class="icon">🏠</span> Dashboard
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="courses">
+          <span class="icon">📚</span> Courses
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="grades">
+          <span class="icon">📊</span> Grades & GPA
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="assignments">
+          <span class="icon">📝</span> Assignments
+          <span class="badge-notif" id="assign-badge" style="display:none;">0</span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="schedule">
+          <span class="icon">📅</span> Schedule
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="attendance">
+          <span class="icon">✅</span> Attendance
+        </button>
+      </li>
+    </ul>
+
+    <span class="nav-section-label">Extras</span>
+    <ul class="nav-list" role="list">
+      <li class="nav-item">
+        <button class="nav-link" data-page="shop">
+          <span class="icon">🛍️</span> Campus Shop
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="todo">
+          <span class="icon">✅</span> To-Do List
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="quiz">
+          <span class="icon">🧠</span> Quizzes
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="portfolio">
+          <span class="icon">🌟</span> My Portfolio
+        </button>
+      </li>
+    </ul>
+
+    <span class="nav-section-label">Other</span>
+    <ul class="nav-list" role="list">
+      <li class="nav-item">
+        <button class="nav-link" data-page="announcements">
+          <span class="icon">📢</span> Announcements
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="notifications">
+          <span class="icon">🔔</span> Notifications
+          <span class="badge-notif" id="notif-badge" style="display:none;">0</span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-page="profile">
+          <span class="icon">👤</span> My Profile
+        </button>
+      </li>
+    </ul>
+
+    <!-- Footer -->
+    <div class="sidebar-footer">
+      <div class="theme-switcher" aria-label="Change theme">
+        <button class="theme-dot active" data-theme="pastel" title="Spring Pastel"></button>
+        <button class="theme-dot"        data-theme="dark"   title="Dark Mode"></button>
+        <button class="theme-dot"        data-theme="mint"   title="Mint"></button>
+        <button class="theme-dot"        data-theme="peach"  title="Peach"></button>
+      </div>
+      <button class="logout-btn" id="logout-btn" aria-label="Logout">
+        🚪 Logout
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MAIN CONTENT (dynamically loaded) ── -->
+  <main class="main-content" id="page-content" role="main" aria-live="polite">
+    <div style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <div class="spinner"></div>
+    </div>
+  </main>
+
+</div>
+
+<!-- Toast container -->
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- Scripts (order matters) -->
+<script src="../js/theme.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/renderer.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/courses.js"></script>
+<script src="../js/grades.js"></script>
+<script src="../js/assignments.js"></script>
+<script src="../js/schedule.js"></script>
+<script src="../js/attendance.js"></script>
+<script src="../js/announcements.js"></script>
+<script src="../js/notifications.js"></script>
+<script src="../js/profile.js"></script>
+<script src="../js/shop.js"></script>
+<script src="../js/todo.js"></script>
+<script src="../js/quiz.js"></script>
+<script src="../js/portfolio.js"></script>
+</body>
+</html>
