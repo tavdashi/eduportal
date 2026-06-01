@@ -1,4 +1,4 @@
-# 🎓 EduPortal — Student Web Portal
+# EduPortal — Student Web Portal
 
 A full-featured desktop student management portal built with **Electron**, **SQLite**, and **vanilla JavaScript**.
 
@@ -9,9 +9,9 @@ A full-featured desktop student management portal built with **Electron**, **SQL
 
 ---
 
-## ✨ Features
+## Features
 
-### 📚 Academic Tools
+### Academic Tools
 - **Dashboard** — GPA overview, pending assignments, daily schedule, announcements
 - **Courses** — Browse, enroll, track progress per course
 - **Grades & GPA** — Cumulative GPA calculation (4.0 scale), grade distribution
@@ -19,26 +19,26 @@ A full-featured desktop student management portal built with **Electron**, **SQL
 - **Schedule** — Weekly timetable view
 - **Attendance** — Per-course attendance tracking with 75% warnings
 
-### 🎯 Extras
-- **🛍️ Campus Shop** — Product listing, add-to-cart, checkout with saved delivery details
-- **✅ To-Do List** — Add tasks with priority & due dates, toggle complete, filter
-- **🧠 Quizzes** — 3 quiz topics (GK, CS, Math), 8 MCQs each, score & grade display
-- **🌟 Portfolio** — Auto-generated student portfolio with About, Skills, Contact form
+### Extras
+- **Campus Shop** — Product listing, add-to-cart, checkout with saved delivery details
+- **To-Do List** — Add tasks with priority & due dates, toggle complete, filter
+- **Quizzes** — 3 quiz topics (GK, CS, Math), 8 MCQs each, score & grade display
+- **Portfolio** — Auto-generated student portfolio with About, Skills, Contact form
 
-### 🎨 UI & Design
+### UI & Design
 - **4 Themes** — Spring Pastel (default), Dark Mode, Mint, Peach
 - **Animated UI** — Smooth transitions, hover effects, count-up animations
 - **Responsive layout** — Sidebar + content area SPA navigation
 - **Custom titlebar** — Frameless Electron window with custom controls
 
-### 🔐 Auth & Data
+### Auth & Data
 - **Login / Register** — Persistent user accounts stored in SQLite
 - **Session management** — sessionStorage-based auth guard
 - **Auto-seed** — Demo data populates automatically on first launch
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v18 or higher)
@@ -68,7 +68,7 @@ Or create a new account from the Register tab.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 eduportal/
@@ -109,7 +109,7 @@ eduportal/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Role |
 |-----------|------|
@@ -121,7 +121,7 @@ eduportal/
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────┐
@@ -145,6 +145,6 @@ eduportal/
 
 ---
 
-## 📄 License
+## License
 
 MIT
